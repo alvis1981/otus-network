@@ -1,0 +1,41 @@
+# Версия docker-compose
+version: '2'
+# Список наших сервисов (контейнеров)
+services:
+  nginx:
+    # используем последний стабильный образ nginx
+    image: nginx:latest
+    # маршрутизируем порты
+    ports:
+      - "8090:80"
+    restart: always
+    # монтируем директории, слева директории на основной машине, справа - куда они монтируются в контейнере
+    volumes:
+      - ./.docker:/etc/nginx/conf.d
+      - .:/var/www
+      - ../logs/otus-network:/var/log/nginx
+    # nginx должен общаться с php контейнером
+    links:
+      - php
+
+
+  php:
+    # у нас свой образ для PHP, указываем путь к нему и говорим что его надо собрать
+    build: .docker
+    # этот образ будет общаться с mysql
+    links:
+      - mysql
+    # монтируем директорию с проектами
+    volumes:
+      - .:/var/www
+      - ./.docker/php.ini:/usr/local/etc/php/php.ini
+
+  mysql:
+    image: mysql:5.7
+    ports:
+      - "3309:3306"
+    volumes:
+      - ../mysql/otus-network:/var/lib/mysql
+    # задаем пароль для root пользователя
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
