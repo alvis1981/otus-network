@@ -20,29 +20,6 @@ class Auth extends CI_Controller {
         //load model
         $this->load->model('Auth_model', 'auth');
         $this->load->library('form_validation');
-
-
-        $this->db->query("CREATE TABLE `users` (
-  `id` int(11) NOT NULL COMMENT 'Primary Key',
-  `first_name` varchar(100) NOT NULL COMMENT 'First Name',
-  `last_name` varchar(100) NOT NULL COMMENT 'Last Name',
-  `user_name` varchar(100) NOT NULL COMMENT 'Last Name',
-  `email` varchar(255) NOT NULL COMMENT 'Email Address',
-  `password` varchar(255) NOT NULL COMMENT 'Password',
-  `address` text NOT NULL,
-  `dob` varchar(15) NOT NULL COMMENT 'Date Of Birth',
-  `contact_no` varchar(16) NOT NULL COMMENT 'Contact No',
-  `url` int(255) DEFAULT NULL,
-  `verification_code` varchar(255) NOT NULL COMMENT 'verification Code',
-  `created_date` varchar(12) NOT NULL COMMENT 'created timestamp',
-  `modified_date` varchar(12) NOT NULL COMMENT 'modified timestamp',
-  `status` char(1) NOT NULL COMMENT '0=pending, 1=active, 2=delete'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='datatable demo table';");
-		$this->db->query("ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);");
-		$this->db->query("ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Primary Key';");
-
     }
 
     // index method
