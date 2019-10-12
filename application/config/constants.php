@@ -94,10 +94,10 @@ $root .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAM
 $constants['base_url'] = $root;
 if ($_SERVER['SERVER_NAME'] == "https://otus-homework.herokuapp.com/") {
 	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-	$host = $url["host"];
-	$username = $url["user"];
-	$password = $url["pass"];
-	$dbname = substr($url["path"], 1);
+	define('DB_HOSTNAME', $url["host"]);
+	define('DB_USERNAME', $url["user"]);
+	define('DB_PASSWORD', $url["pass"]);
+	define('DB_NAME', substr($url["path"], 1));
 } else {
 	define('DB_HOSTNAME', 'mysql');
 	define('DB_USERNAME', 'root');
