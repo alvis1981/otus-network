@@ -92,8 +92,8 @@ $root = "http://" . $_SERVER['HTTP_HOST'];
 $root .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 
 $constants['base_url'] = $root;
-echo $_SERVER['SERVER_NAME'];
-if ($_SERVER['SERVER_NAME'] == "https://otus-homework.herokuapp.com/") {
+
+if ($_SERVER['SERVER_NAME'] == "otus-homework.herokuapp.com") {
 
 	define('DB_HOSTNAME', 'eu-cdbr-west-02.cleardb.net');
 	define('DB_USERNAME', 'be1f32c130602c');
