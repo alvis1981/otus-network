@@ -92,11 +92,18 @@ $root = "http://" . $_SERVER['HTTP_HOST'];
 $root .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 
 $constants['base_url'] = $root;
-define('DB_HOSTNAME', 'mysql');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'secret');
-define('DB_NAME', 'otus');
-
+if ($_SERVER['SERVER_NAME'] == "https://otus-homework.herokuapp.com/") {
+	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+	$host = $url["host"];
+	$username = $url["user"];
+	$password = $url["pass"];
+	$dbname = substr($url["path"], 1);
+} else {
+	define('DB_HOSTNAME', 'mysql');
+	define('DB_USERNAME', 'root');
+	define('DB_PASSWORD', 'secret');
+	define('DB_NAME', 'otus');
+}
 // windows path
 //define('BASH_PATH', 'C:/xampp/htdocs/codeIgniter-login-registration-system-using-mysql-bootstrap/');
 // Ubuntu path
