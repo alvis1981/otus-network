@@ -92,12 +92,13 @@ $root = "http://" . $_SERVER['HTTP_HOST'];
 $root .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 
 $constants['base_url'] = $root;
+echo $_SERVER['SERVER_NAME'];
 if ($_SERVER['SERVER_NAME'] == "https://otus-homework.herokuapp.com/") {
-	$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-	define('DB_HOSTNAME', $url["host"]);
-	define('DB_USERNAME', $url["user"]);
-	define('DB_PASSWORD', $url["pass"]);
-	define('DB_NAME', substr($url["path"], 1));
+
+	define('DB_HOSTNAME', 'eu-cdbr-west-02.cleardb.net');
+	define('DB_USERNAME', 'be1f32c130602c');
+	define('DB_PASSWORD', '0056ac60');
+	define('DB_NAME','heroku_38fd95b68ee1354');
 } else {
 	define('DB_HOSTNAME', 'mysql');
 	define('DB_USERNAME', 'root');
