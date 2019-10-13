@@ -23,17 +23,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top header-bg-dark" style="background: ##FFFFFF!;">
   <div class="container">
-    <a class="navbar-brand font-weight-bold" href=".."><h1>Otus соцсеть ДЗ</h1></a>
+    <a class="navbar-brand font-weight-bold" href="/"><h1>Otus соцсеть ДЗ</h1></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="..">Home
+          <a class="nav-link" href="/">Home
                 <span class="sr-only">(current)</span>
               </a>
         </li>
+		  <li class="nav-item active">
+			  <a class="nav-link" href="<?php print site_url()?>profile/profiles">Профили - ТОП 10
+				  <span class="sr-only">(current)</span>
+			  </a>
+		  </li>
       </ul>
     </div>
   </div>

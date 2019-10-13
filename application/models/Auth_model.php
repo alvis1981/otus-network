@@ -27,9 +27,20 @@ class Auth_model extends CI_Model {
     private $_verificationCode;
     private $_timeStamp;
     private $_status;
+
+
  
     //Declaration of a methods
-    public function setUserID($userID) {
+
+	/**
+	 * Auth_model constructor.
+	 */
+	public function __construct()
+	{
+
+	}
+
+	public function setUserID($userID) {
         $this->_userID = $userID;
     }
  
@@ -176,6 +187,27 @@ class Auth_model extends CI_Model {
         $string = rtrim($string, '');
         return $string;
     }
+
+    public function getUserInfo($id)
+	{
+		$this->db->select('id as user_id, user_name, email, first_name, password, address, dob');
+		$this->db->from('users');
+		$this->db->where('id', $id);
+		$this->db->limit(1);
+		$data = $this->db->get()->result_object();
+
+		return $data;
+	}
+
+    public function getUsers()
+	{
+		$this->db->select('id as user_id, user_name');
+		$this->db->from('users');
+		$this->db->limit(10);
+		$data = $this->db->get()->result_object();
+
+		return $data;
+	}
 
 }
 ?>
