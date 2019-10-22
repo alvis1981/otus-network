@@ -25,6 +25,8 @@ class Profile extends CI_Controller
 			$data['user_not_found'] = 0;
 			$data['title'] = "Профиль - " . $user[0]->user_name;
 			$data['user_name'] = $user[0]->user_name;
+			$data['first_name'] = $user[0]->first_name;
+			$data['last_name'] = $user[0]->last_name;
 			$data['address'] = $user[0]->address;
 			$data['dob'] = $user[0]->dob;
 			$data['email'] = $user[0]->email;
@@ -44,6 +46,33 @@ class Profile extends CI_Controller
 		$data['users'] = $this->auth->getUsers();
 
 		$this->load->view('profile/profiles', $data);
+	}
+
+	public function actionFindProfiles() {
+		$firstName = $this->input->get('first_name');
+		$lastName = $this->input->get('last_name');
+
+		$data = array();
+		$data['metaDescription'] = 'Профили';
+		$data['metaKeywords'] = 'Профили';
+		$data['breadcrumbs'] = array('Профили' => '#');
+		$data['title'] = "Профили";
+		$data['users'] = $this->auth->findUsers($firstName, $lastName);
+
+		$this->load->view('profile/profiles', $data);
+	}
+
+
+	public function findProfiles()
+	{
+
+		$data = array();
+		$data['metaDescription'] = 'Поиск';
+		$data['metaKeywords'] = 'Поиск';
+		$data['breadcrumbs'] = array('Поиск' => '#');
+		$data['title'] = "Поиск";
+
+		$this->load->view('profile/findProfiles', $data);
 	}
 
 }

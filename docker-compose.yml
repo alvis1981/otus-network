@@ -39,3 +39,11 @@ services:
     # задаем пароль для root пользователя
     environment:
       MYSQL_ROOT_PASSWORD: secret
+
+  wrk:
+    build: .docker/wrk
+    command: tail -F anything
+    links:
+      - nginx
+    hostname: wrk
+    domainname: wrk.local

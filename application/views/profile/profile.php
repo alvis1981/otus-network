@@ -40,6 +40,8 @@
 				<br>
 				<h3><?php print $title; ?></h3>
 				<?php if($user_not_found == 0) { ?>
+					<p class="title"><?php print $first_name; ?></p>
+					<p class="title"><?php print $last_name; ?></p>
 					<p class="title"><?php print $address; ?></p>
 					<p class="title"><?php print $dob; ?></p>
 					<p><?php print $email; ?></p>

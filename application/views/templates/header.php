@@ -39,6 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				  <span class="sr-only">(current)</span>
 			  </a>
 		  </li>
+		  <li class="nav-item active">
+			  <a class="nav-link" href="<?php print site_url()?>profile/findProfiles">Поиск
+				  <span class="sr-only">(current)</span>
+			  </a>
+		  </li>
       </ul>
     </div>
   </div>

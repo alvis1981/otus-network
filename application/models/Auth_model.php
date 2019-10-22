@@ -190,7 +190,7 @@ class Auth_model extends CI_Model {
 
     public function getUserInfo($id)
 	{
-		$this->db->select('id as user_id, user_name, email, first_name, password, address, dob');
+		$this->db->select('id as user_id, user_name, email, first_name, last_name, password, address, dob');
 		$this->db->from('users');
 		$this->db->where('id', $id);
 		$this->db->limit(1);
@@ -208,6 +208,15 @@ class Auth_model extends CI_Model {
 
 		return $data;
 	}
+
+	public function findUsers($firstName, $lastName)
+	{
+		$data = $this->db->query("SELECT id as user_id, user_name FROM users WHERE first_name like ? AND last_name like ? ORDER BY id DESC LIMIT 100",
+			[$firstName.'%', $lastName . '%'])->result();
+
+		return $data;
+	}
+
 
 }
 ?>
