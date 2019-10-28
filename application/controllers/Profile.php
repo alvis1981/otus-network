@@ -50,14 +50,14 @@ class Profile extends CI_Controller
 
 	public function actionFindProfiles() {
 		$firstName = $this->input->get('first_name');
-		$lastName = $this->input->get('last_name');
+		//$lastName = $this->input->get('last_name');
 
 		$data = array();
 		$data['metaDescription'] = 'Профили';
 		$data['metaKeywords'] = 'Профили';
 		$data['breadcrumbs'] = array('Профили' => '#');
 		$data['title'] = "Профили";
-		$data['users'] = $this->auth->findUsers($firstName, $lastName);
+		$data['users'] = $this->auth->findUsers($firstName);
 
 		$this->load->view('profile/profiles', $data);
 	}

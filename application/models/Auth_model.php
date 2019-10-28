@@ -209,10 +209,10 @@ class Auth_model extends CI_Model {
 		return $data;
 	}
 
-	public function findUsers($firstName, $lastName)
+	public function findUsers($firstName)
 	{
-		$data = $this->db->query("SELECT id as user_id, user_name FROM users WHERE first_name like ? AND last_name like ? ORDER BY id DESC LIMIT 100",
-			[$firstName.'%', $lastName . '%'])->result();
+		$data = $this->db->query("SELECT id as user_id, user_name FROM users WHERE first_name like ? or last_name like ? ORDER BY id DESC LIMIT 100",
+			[$firstName.'%', $firstName . '%'])->result();
 
 		return $data;
 	}

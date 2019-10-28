@@ -23,11 +23,6 @@
 										<input type="text" class="form-control" id="rfirst_name" name="first_name" placeholder="Имя">
 									</div>
 								</div>
-								<div class="form-group">
-									<div class="input-group mb-1">
-										<input type="text" class="form-control" id="rlast_name" name="last_name" placeholder="Фамилия">
-									</div>
-								</div>
 
 								<div class="text-center">
 									<button type="submit" id="contact-send-a" class="btn btn-info btn-block rounded-0 py-2">Поиск</button>
