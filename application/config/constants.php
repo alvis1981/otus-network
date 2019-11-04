@@ -106,6 +106,10 @@ if ($_SERVER['SERVER_NAME'] == "otus-homework.herokuapp.com") {
 	define('DB_PASSWORD', 'secret');
 	define('DB_NAME', 'otus');
 	define('SESS_SAVE_PATH', null);
+	define('SLAVE_DB_HOSTNAME', 'mysqlslave');
+	define('SLAVE_DB_USERNAME', 'root');
+	define('SLAVE_DB_PASSWORD', 'root');
+	define('SLAVE_DB_NAME', 'otus');
 }
 // windows path
 //define('BASH_PATH', 'C:/xampp/htdocs/codeIgniter-login-registration-system-using-mysql-bootstrap/');

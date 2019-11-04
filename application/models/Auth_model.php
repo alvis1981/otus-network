@@ -201,17 +201,20 @@ class Auth_model extends CI_Model {
 
     public function getUsers()
 	{
-		$this->db->select('id as user_id, user_name');
-		$this->db->from('users');
-		$this->db->limit(10);
-		$data = $this->db->get()->result_object();
+		$slaveDB = $this->load->database('slave', TRUE);
+		$slaveDB->select('id as user_id, user_name');
+		$slaveDB->from('users');
+		$slaveDB->limit(10);
+		$data = $slaveDB->get()->result_object();
 
 		return $data;
 	}
 
 	public function findUsers($firstName)
 	{
-		$data = $this->db->query("SELECT id as user_id, user_name FROM users WHERE first_name like ? or last_name like ? ORDER BY id DESC LIMIT 100",
+
+		$slaveDB = $this->load->database('slave', TRUE);
+		$data = $slaveDB->query("SELECT id as user_id, user_name FROM users WHERE first_name like ? or last_name like ? ORDER BY id DESC LIMIT 100",
 			[$firstName.'%', $firstName . '%'])->result();
 
 		return $data;
