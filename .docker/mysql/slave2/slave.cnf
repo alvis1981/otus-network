@@ -1,5 +1,5 @@
 [mysqld]
-server-id=2
+server-id=3
 gtid_mode=ON
 enforce-gtid-consistency
 plugin-load=rpl_semi_sync_slave=semisync_slave.so
